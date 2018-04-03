@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # source the goodness
-./settings.sh
+. ./settings.sh
 
 check_i_am_devloper
 

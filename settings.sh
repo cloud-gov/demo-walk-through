@@ -44,3 +44,12 @@ function check_i_am_devloper() {
     exit 1
   fi
 }
+
+function check_i_am_admin() {
+  if cf target | grep -q "user.*$user@gsa.gov"; then
+    echo "OK"
+  else
+    echo "need to login as $user@gsa.gov"
+    exit 1
+  fi
+}
