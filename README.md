@@ -30,10 +30,10 @@ Before the demo:
 
 Demo:
 
-  1. Note: Usually we direct people to the /quickstart for sandbox, but let's do this exercise as if YOUR AGENCY had a prototyping organization, which will call `demo-YOURAGENCY`. We'll create that 'org', then three space within it.  Since I don't have a USDA user, I'll use my alias 'USER@connect.gov' as the OrgManager (meaning I have full rights). I run this as a cloud.gov OPERATOR
+  1. Note: Usually we direct people to the /quickstart for sandbox run-through, but let's do this exercise as if YOUR AGENCY had a prototyping organization, which will call `demo-YOURAGENCY`. We'll create that `Org`, then three `spaces` within it.  Since I don't have a YOUR AGENCY user, I'll use my alias 'USER@connect.gov' as the `OrgManager` (meaning I have full rights to the Org). I run this as a cloud.gov OPERATOR
   1. ADMIN: `admin-setup-demo.sh`
-  1. Note: The point here is not to demonstrate just the developer experience, but the full automation around a building out an entire self-service system management.  Now the cloud.gov operators let the YOUR AGENCY org manager now they can get to work, so they invite a developer `$user@cao.gov` to be a development 'developer'
-  1. BROWSER: go to dashboard invite $user@cao.gov 
+  1. Note: The point here is not to demonstrate just the developer experience, but the full automation around a building out an entire self-service system management solution.  Now the cloud.gov operators let the YOUR AGENCY OrgManager know they can get to work, so they invite a developer `$user@cao.gov` to be a dev space 'developer'
+  1. BROWSER: go to dashboard, and invite $user@cao.gov 
   1. DEVELOPER: `./demo.sh`
 
 Clean up:
