@@ -19,6 +19,8 @@ fi
 # put your demo awesomeness here
 pe "cf help"
 
+asldfkj90() {
+p "# view https://github.com/18F/cf-sample-app-spring"
 [ -d cf-sample-app-spring ] && rm -rf cf-sample-app-spring/
 pe "git clone https://github.com/18F/cf-sample-app-spring"
 
@@ -47,7 +49,9 @@ pe "cf restage cf-spring"
 pe "cf app cf-spring"
 pe "cf scale -i 2 cf-spring"
 pe "cf app cf-spring"
-pe "cf ssh cf-spring"
+}
+
+pe "cf ssh cf-spring -c 'ps -ef'"
 
 # show a prompt so as not to reveal our true nature after
 # the demo has concluded
