@@ -3,18 +3,18 @@
 You can leverage [cloud.gov’s identity hub](https://cloud.gov/docs/services/cloud-gov-identity-provider/) to reduce the burden of authenticating users from government agencies and partners in your app.
 
 This demo has two parts: 
-- 1. running an application in cloud.gov that uses the identiy provider
-- 2. jrunning a local UAA server for local development
+  1. running an application in cloud.gov that uses the identiy provider
+  2. running a local UAA server for local development
 
 ## 1. Run an application in cloud.gov that uses the identity provider
 
-In this example you run the DO-NOT-USE-IN-PRODUCTION `example-client.js` node application 
+In this example you run the DO-NOT-USE-IN-PRODUCTION `id-example.js` node application 
 to authenticate real users. You'll need a [cloud.gov account](https://account.fr.cloud.gov/signup), 
 and you should already be logged-in (`cf login --sso`).
 
 ### Running the demonstration
 
-First we'll `push` the example-client with a random route, and get that route name
+First we'll `push` the id-example with a random route, and get that route name
 for later use:
 
 ```bash
@@ -62,11 +62,30 @@ cf delete-service -f uaa-id-example
 ```
 
 ## 2. Run a local UAA server for local development
- 
+
+Using the cloud.gov identity provider for your production apps can save development time and resources, and assure a consistent user experience. But using the cloud.gov provider for local development, however, has some drawbacks, but a local UAA allows one to:
+
+- log in as multiple different users
+- skip 2-factor auth 
+- debug by having direct access to UAA logs.
+
+The most consistent way to run UAA locally is with a Docker container, such as the one from [HortonWorks](https://github.com/hortonworks/docker-cloudbreak-uaa), which one can start up the following command:
 
 ```
 docker run -d --name uaa-uaa -p 8080:8080 \
-  -e UAA_CONFIG_URL=https://gist.githubusercontent.com/pburkholder/4b96a7539da68f39f4804c4a63572e4a/raw/e4533dc8894e7adafedb6f316c4b16ca86be913c/uaa.yml \
+  -e UAA_CONFIG_URL=https://raw.githubusercontent.com/18F/cg-demos/pdb/cg-id-provider/cg-identity/uaa.yml \
  hortonworks/cloudbreak-uaa:3.6.3
  ```
 
+> You can use your own `uaa.yml` by copying it to, say, `/tmp/uaa/uaa.yml` and running instead: `docker run -d --name uaa-uaa -p 8080:8080 -v /tmp/uaa:/uaa:rw hortonworks/cloudbreak-uaa:3.6.3`
+
+To view the logs, you can use `docker exec uaa-uaa /usr/bin/tail -f /tomcat/logs/uaa.log`.
+
+You can then test the local UAA with the included `id-example.js` by running:
+
+ ```
+ npm install
+ npm start
+ ```
+
+ And in a browser going to, http://localhost:8000, clicking on the login link, then using the username `paul`, password `wombat`.
