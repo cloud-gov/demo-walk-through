@@ -73,7 +73,7 @@ The most consistent way to run UAA locally is with a Docker container, such as t
 
 ```
 docker run -d --name uaa-uaa -p 8080:8080 \
-  -e UAA_CONFIG_URL=https://raw.githubusercontent.com/18F/cg-demos/pdb/cg-id-provider/cg-identity/uaa.yml \
+  -e UAA_CONFIG_URL=https://raw.githubusercontent.com/18F/cg-demos/master/cg-identity/uaa.yml \
  hortonworks/cloudbreak-uaa:3.6.3
  ```
 
