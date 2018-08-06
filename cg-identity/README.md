@@ -79,7 +79,7 @@ docker run -d --name uaa-uaa -p 8080:8080 \
 
 > You can use your own `uaa.yml` by copying it to, say, `/tmp/uaa/uaa.yml` and running instead: `docker run -d --name uaa-uaa -p 8080:8080 -v /tmp/uaa:/uaa:rw hortonworks/cloudbreak-uaa:3.6.3`
 
-To view the logs, you can use `docker exec uaa-uaa /usr/bin/tail -f /tomcat/logs/uaa.log`.
+To view the logs, you can use `docker exec uaa-uaa /usr/bin/tail -f /tomcat/logs/uaa.log`
 
 You can then test the local UAA with the included `id-example.js` by running:
 
