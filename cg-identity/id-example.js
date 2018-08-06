@@ -10,7 +10,7 @@ const jwt = require("jsonwebtoken");
 const PORT = process.env.PORT || 8000;
 var client_id = 'my_client_id';
 var client_secret = 'my_client_secret';
-var root_url = 'https://locahost:' + PORT + '/'
+var root_url = 'http://localhost:' + PORT + '/'
 var vcap_services = JSON.parse(process.env.VCAP_SERVICES || null);
 var vcap_application = JSON.parse(process.env.VCAP_APPLICATION || null);
 
@@ -172,5 +172,5 @@ app.get('/auth/logout', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("Listening on " + PORT);
+  console.log("Listening on " + root_url);
 });
