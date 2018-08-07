@@ -3,8 +3,8 @@
 You can leverage [cloud.gov’s identity hub](https://cloud.gov/docs/services/cloud-gov-identity-provider/) to reduce the burden of authenticating users from government agencies and partners in your app.
 
 This demo has two parts: 
-  1. running an application in cloud.gov that uses the identiy provider
-  2. running a local UAA server for local development
+  1. [running an application in cloud.gov that uses the identiy provider](#1-run-an-application-in-cloudgov-that-uses-the-identity-provider)
+  2. [running a local UAA server for local development](#2-run-a-local-uaa-server-for-local-development)
 
 ## 1. Run an application in cloud.gov that uses the identity provider
 
