@@ -63,11 +63,8 @@ cf delete-service -f uaa-id-example
 
 ## 2. Run a local UAA server for local development
 
-Using the cloud.gov identity provider for your production apps can save development time and resources, and assure a consistent user experience. But using the cloud.gov provider for local development, however, has some drawbacks, but a local UAA allows one to:
-
-- log in as multiple different users
-- skip 2-factor auth 
-- debug by having direct access to UAA logs.
+During application development, you may want to authenticate against a local UAA server
+so you can test as multiple users, skip 2-factor authentication, and view UAA logs. 
 
 The most consistent way to run UAA locally is with a Docker container, such as the one from [HortonWorks](https://github.com/hortonworks/docker-cloudbreak-uaa), which one can start up the following command:
 
