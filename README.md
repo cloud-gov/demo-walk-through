@@ -40,3 +40,9 @@ Clean up:
   1. DEVELOPER: `./demo-cleanup.sh`
   1. ADMIN: `admin-teardown-demo.sh`
 
+
+## Auditing
+
+We spell out how to use audit endpoints at:
+https://cloud.gov/docs/compliance/auditing-activity/. This directory ... has a
+stub for using audit.
