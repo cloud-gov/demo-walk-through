@@ -20,5 +20,5 @@ pe "cf create-space -o $org preprod"
 pe "cf spaces"
 
 echo 
-printf "Now login to \e[38;5;81mhttps://dashboard.fr.cloud.gov\e[0m as $user@connect.gov and invite $user@cao.gov\n"
+printf "Now login to \e[38;5;81mhttps://dashboard.fr.cloud.gov\e[0m as $user@connect.gov and invite $user@connect.gov\n"
 echo 

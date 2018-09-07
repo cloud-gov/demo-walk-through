@@ -22,16 +22,10 @@
 DEMO_PROMPT="${GREEN}➜ ${CYAN}\W "
 
 case $CG_SCENARIO in
-  "demo-usda")
-    user=peter.burkholder
-    devdomain=cao.gov
-    org="demo-usda"
-    space=dev
-    ;;
   *)
     user=peter.burkholder
-    devdomain=cao.gov
-    org=sandbox-cao
+    devdomain=connect.gov
+    org=sandbox-connect
     space=peter.burkholder
     ;;
 esac

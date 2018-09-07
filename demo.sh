@@ -4,6 +4,15 @@
 . ./settings.sh
 naptime=8
 
+cleanup() {
+  cf delete cf-spring -f
+  cf delete-service cf-spring-db -f
+  cf delete-orphaned-routes -f
+  rm -rf cf-sample-app-spring
+}
+
+cleanup
+
 # hide the evidence
 clear
 
@@ -45,8 +54,8 @@ pe "cf bind-service cf-spring cf-spring-db"
 
 pe "cf restage cf-spring"
 pe "cf app cf-spring"
-pe "cf scale -i 2 cf-spring"
-pe "cf app cf-spring"
+
+echo "Let's SSH in..."
 pe "cf ssh cf-spring"
 
 # show a prompt so as not to reveal our true nature after
