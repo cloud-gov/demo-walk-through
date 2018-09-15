@@ -21,6 +21,8 @@
 #
 DEMO_PROMPT="${GREEN}➜ ${CYAN}\W "
 
+
+
 case $CG_SCENARIO in
   *)
     user=peter.burkholder
