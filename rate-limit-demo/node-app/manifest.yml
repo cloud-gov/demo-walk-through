@@ -1,6 +1,6 @@
 applications:
 - name: hello-iife
   disk_quota: 256M
-  instances: 2
+  instances: 1
   memory: 64M
   stack: cflinuxfs2
