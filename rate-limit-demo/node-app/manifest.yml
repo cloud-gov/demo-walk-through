@@ -1,5 +1,7 @@
 applications:
 - name: hello-iife
+  buildpacks:
+    - node_buildpack
   disk_quota: 256M
   instances: 1
   memory: 64M
