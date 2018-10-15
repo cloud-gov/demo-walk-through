@@ -35,7 +35,7 @@ p "# and cd into the directory, $DIR"
 pe "cd $DIR"
 
 echo
-p "# at this point, login if you've not already done so, e.g:"
+p "# at this point, log in if you've not already done so, e.g:"
 p "cf login -a https://api.fr.cloud.gov --sso"
 cat<<END
 API endpoint: https://api.fr.cloud.gov
@@ -61,7 +61,7 @@ launch
 
 route=$(cf app $APP | perl -ane 'm/routes: *(\S+)/ && print "$1\n"')
 echo 
-p "# if you can't already, view the running app at it's route:"
+p "# if you haven't already, view the running app at it's route:"
 echo "$route"
 
 echo
@@ -81,18 +81,19 @@ p "# 'binding' provides the app the env vars to connect to the service"
 pe "cf bind-service cf-spring cf-spring-db"
 
 echo
-(sleep $naptime && open -a "Google Chrome.app" https://logs.fr.cloud.gov ) &
-
+p "# now we restage the app so it can use the backend DB"
+p "# while that runs, we can view logs at https://logs.fr.cloud.gov"
 pe "cf restage cf-spring"
-pe "cf app cf-spring"
 
-echo "Let's SSH in..."
-pe "cf ssh cf-spring"
+echo 
+p "# Now see services at $route"
 
-# show a prompt so as not to reveal our true nature after
-# the demo has concluded
 echo
-echo "If you're done, run ./demo-cleanup.sh"
-echo "-- fini $0 --"
-echo
+p "# We have logs for debugging, and also ssh"
+pe "cf ssh cf-spring -c 'ps'"
+
+
+echo 
+p "# cleanup is easy. if you're done, run ./demo-cleanup.sh"
+p "# THANK YOU FOR TOURING cloud.gov"
 p ""
