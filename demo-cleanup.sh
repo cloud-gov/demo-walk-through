@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 # source the goodness
-. ./settings.sh
-
-check_i_am_devloper
+. ./init.sh
 
 # hide the evidence
 clear
