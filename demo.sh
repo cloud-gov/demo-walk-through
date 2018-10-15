@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 # include the goodness
-. ./settings.sh
-naptime=8
+source ./init.sh
 
 cleanup() {
   cf delete cf-spring -f
@@ -12,22 +11,16 @@ cleanup() {
 }
 
 cleanup
-
-# hide the evidence
+# clean up screen before continuing
 clear
 
-check_i_am_devloper
-
-if cf target | grep -q "user.*$user@$devdomain"; then
-  echo "OK"
-else
-  echo "need to login as $user@$devdomain"
-  exit 1
-fi
-
 # put your demo awesomeness here
+p "# `cf help` confirms that we have the CF CLI installed"
 pe "cf help"
 
+p "# now lets clone the sample app from https://github.com/18F/cf-sample-app-spring"
+
+exit
 [ -d cf-sample-app-spring ] && rm -rf cf-sample-app-spring/
 pe "git clone https://github.com/18F/cf-sample-app-spring"
 
