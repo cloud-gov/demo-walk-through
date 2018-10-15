@@ -5,7 +5,7 @@ source .demo-magic/demo-magic.sh
 
 # DEFAULTS
 # speed at which to simulate typing. bigger num = faster
-TYPE_SPEED=20
+TYPE_SPEED=60
 
 # see http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html
 DEMO_PROMPT="${GREEN}➜ ${CYAN}\W "
