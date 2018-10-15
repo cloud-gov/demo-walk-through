@@ -28,5 +28,3 @@ cf target 2>&1 | grep -q "Use .cf login. to log in" >/dev/null &&
 
 cf target | grep -q '^org: *sandbox-' || 
   fail "'cf target' says you're not connected to a sandbox org. Try 'cf target'"
-
-exit

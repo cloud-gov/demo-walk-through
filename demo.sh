@@ -2,12 +2,13 @@
 
 # include the goodness
 source ./init.sh
+REPO=https://github.com/cloudfoundry-samples/spring-music
 
 cleanup() {
-  cf delete cf-spring -f
-  cf delete-service cf-spring-db -f
-  cf delete-orphaned-routes -f
-  rm -rf cf-sample-app-spring
+  echo "DOING PRE-DEMO CLEAN UP" 
+  cf delete cf-spring -f >/dev/null
+  cf delete-service cf-spring-db -f >/dev/null
+  rm -rf spring-music
 }
 
 cleanup
@@ -15,10 +16,10 @@ cleanup
 clear
 
 # put your demo awesomeness here
-p "# `cf help` confirms that we have the CF CLI installed"
+p "# cf help confirms that we have the CF CLI installed"
 pe "cf help"
 
-p "# now lets clone the sample app from https://github.com/18F/cf-sample-app-spring"
+p "# now lets clone the sample app from $REPO"
 
 exit
 [ -d cf-sample-app-spring ] && rm -rf cf-sample-app-spring/
