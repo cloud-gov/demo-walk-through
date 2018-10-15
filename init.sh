@@ -28,3 +28,18 @@ cf target 2>&1 | grep -q "Use .cf login. to log in" >/dev/null &&
 
 cf target | grep -q '^org: *sandbox-' || 
   fail "'cf target' says you're not connected to a sandbox org. Try 'cf target'"
+
+org_count=$(cf orgs | wc -l)
+if [ "$org_count" -gt 10 ]
+then
+  echo "#########################"
+  echo "#########################"
+  echo   WARNING: you see more than 10 orgs
+  echo   "If you're an operator, consider using"
+  echo   "an unprivileged account for demos"
+  echo "#########################"
+  echo "#########################"
+fi
+
+CFORG=$(cf target | perl -ane 'm/^org: *(\S+)/ and print "$1\n"')
+CFUSER=$(cf target | perl -ane 'm/^user: *([^@]+)/ and print "$1\n"')

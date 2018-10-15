@@ -1,8 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash 
+
+set -e
 
 # include the goodness
 source ./init.sh
 REPO=https://github.com/cloudfoundry-samples/spring-music
+APP=spring-music
 
 cleanup() {
   echo "DOING PRE-DEMO CLEAN UP" 
@@ -19,13 +22,18 @@ clear
 p "# cf help confirms that we have the CF CLI installed"
 pe "cf help"
 
+echo
 p "# now lets clone the sample app from $REPO"
 
-exit
-[ -d cf-sample-app-spring ] && rm -rf cf-sample-app-spring/
-pe "git clone https://github.com/18F/cf-sample-app-spring"
+/bin/rm -rf $APP
+pe "git clone $REPO"
 
-pe "cd cf-sample-app-spring"
+echo
+p "# and cd into the directory, $APP"
+pe "cd $APP"
+
+echo
+p "# at this point, login if you've not already done so, e.g:"
 p "cf login -a https://api.fr.cloud.gov --sso"
 cat<<END
 API endpoint: https://api.fr.cloud.gov
@@ -34,7 +42,11 @@ One Time Code ( Get one at https://login.fr.cloud.gov/passcode )>
 ^C
 END
 
-pe "cf target -o $org -s $space"
+echo
+p "# set the target org and space"
+pe "cf target -o $CFORG -s $CFUSER"
+
+exit
 (sleep $naptime && open -a "Google Chrome.app" \
   "https://github.com/18F/cg-workshop/raw/master/images/app_push_flow_diagram_diego.png") &
 pe "cf push" 
