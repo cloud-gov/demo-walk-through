@@ -25,9 +25,14 @@ Run the demo:
 Clean up:
 ```
 ./demo-cleanup.sh
+```
 
 ## Auditing
 
 We spell out how to use audit endpoints at:
 https://cloud.gov/docs/compliance/auditing-activity/. This directory ... has a
 stub for using audit.
+
+## Testing/Developing
+
+These demos all rely on [demo-magic](https://github.com/paxtonhare/demo-magic), which is included at `.demo-magic/demo-magic.sh`
