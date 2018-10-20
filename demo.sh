@@ -12,6 +12,7 @@ cleanup() {
   echo "DOING PRE-DEMO CLEAN UP" 
   cf delete cf-spring -f >/dev/null
   cf delete-service cf-spring-db -f >/dev/null
+  cf delete-orphaned-routes -f
   rm -rf spring-music
 }
 
@@ -90,7 +91,12 @@ p "# Now see services at $route"
 
 echo
 p "# We have logs for debugging, and also ssh"
-pe "cf ssh cf-spring -c 'ps'"
+
+if nc -zG 1 ssh.fr.cloud.gov 2222 >/dev/null; then
+  p "# but SSH is blocked so we'll skip that"
+else
+  pe "cf ssh cf-spring -c 'ps'"
+fi
 
 
 echo 

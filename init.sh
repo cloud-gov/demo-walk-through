@@ -2,16 +2,17 @@
 # include the magic
 ########################
 source .demo-magic/demo-magic.sh
+set -e
 
 # DEFAULTS
 # speed at which to simulate typing. bigger num = faster
-TYPE_SPEED=60
+TYPE_SPEED=20
 
 # see http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html
 DEMO_PROMPT="${GREEN}➜ ${CYAN}\W "
 
-# pause time
-NAPTIME=8
+# set to 'true' to run all the way through
+NO_WAIT=false
 
 # override defaults if desired
 [ -r $HOME/.cgdemorc ] && . $HOME/.cgdemorc
@@ -28,6 +29,9 @@ cf target 2>&1 | grep -q "Use .cf login. to log in" >/dev/null &&
 
 cf target | grep -q '^org: *sandbox-' || 
   fail "'cf target' says you're not connected to a sandbox org. Try 'cf target'"
+
+cf curl /v2/organizations | grep -q "Authentication has expired" &&
+  fail "Authentication has expired.  Please log back in to re-authenticate."
 
 org_count=$(cf orgs | wc -l)
 if [ "$org_count" -gt 10 ]
