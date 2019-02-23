@@ -62,8 +62,8 @@ launch
 
 route=$(cf app $APP | perl -ane 'm/routes: *(\S+)/ && print "$1\n"')
 echo 
-p "# if you haven't already, view the running app at it's route:"
-echo "$route"
+p "# if you haven't already, view the running app at its route:"
+echo "https://${route}"
 
 echo
 p "# to add a backend service, see what's in the 'marketplace'"
@@ -88,7 +88,7 @@ p "#        https://logs.fr.cloud.gov"
 pe "cf restage cf-spring"
 
 echo 
-p "# Now see services at $route"
+p "# Now see services at https://${route}"
 
 echo
 p "# We have logs for debugging, and also ssh"
