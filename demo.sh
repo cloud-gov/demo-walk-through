@@ -83,7 +83,8 @@ pe "cf bind-service cf-spring cf-spring-db"
 
 echo
 p "# now we restage the app so it can use the backend DB"
-p "# while that runs, we can view logs at https://logs.fr.cloud.gov"
+p "# while that runs, we can view logs at"
+p "#        https://logs.fr.cloud.gov"
 pe "cf restage cf-spring"
 
 echo 
@@ -92,7 +93,7 @@ p "# Now see services at $route"
 echo
 p "# We have logs for debugging, and also ssh"
 
-if nc -zG 1 ssh.fr.cloud.gov 2222 >/dev/null; then
+if (nc -zw 1 ssh.fr.cloud.gov 2222 ) >/dev/null; then
   p "# but SSH is blocked so we'll skip that"
 else
   pe "cf ssh cf-spring -c 'ps'"
