@@ -6,8 +6,8 @@ cloud.gov functionality.
 ## Useful links for the demo:
 
 * [cloud.gov login](https://login.fr.cloud.gov/login)
-* [cloud.gov dashboard](https://dashboard-beta.fr.cloud.gov)
-* [cf-sample-app-spring repository](https://github.com/18F/cf-sample-app-spring)
+* [cloud.gov dashboard](https://dashboard.fr.cloud.gov)
+* [sample-app repository](https://github.com/pburkholder/sample-app)
 * [orgs, spaces, and apps](http://basics-workshop.cloudfoundry.org/slides/#/20)
 * [users roles by org and space](https://docs.run.pivotal.io/console/images/pws/invite-members.png)
 * [cf push sequence diagram](https://raw.githubusercontent.com/18F/cg-workshop/master/images/app_push_flow_diagram_diego.png)

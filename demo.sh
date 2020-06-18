@@ -4,16 +4,15 @@ set -e
 
 # include the goodness
 source ./init.sh
-REPO=https://github.com/18F/cf-sample-app-spring
-DIR=cf-sample-app-spring
-APP=cf-spring
+REPO=https://github.com/pburkholder/sample-app
+DIR=sample-app
+APP=sample-app
 
 cleanup() {
   echo "DOING PRE-DEMO CLEAN UP" 
-  cf delete cf-spring -f >/dev/null
-  cf delete-service cf-spring-db -f >/dev/null
+  cf delete sample-app -f >/dev/null
+  cf delete-service sample-app-db -f >/dev/null
   cf delete-orphaned-routes -f
-  rm -rf spring-music
 }
 
 function launch() {
@@ -74,18 +73,18 @@ p "# use the -s switch for details on the aws-rds offering"
 pe "cf marketplace -s aws-rds"
 
 echo 
-p "# create a shared-mysql instance 'cf-spring-db'"
-pe "cf create-service aws-rds shared-mysql cf-spring-db"
+p "# create a shared-mysql instance 'sample-app-db'"
+pe "cf create-service aws-rds shared-mysql sample-app-db"
 
 echo
 p "# 'binding' provides the app the env vars to connect to the service"
-pe "cf bind-service cf-spring cf-spring-db"
+pe "cf bind-service sample-app sample-app-db"
 
 echo
 p "# now we restage the app so it can use the backend DB"
 p "# while that runs, we can view logs at"
 p "#        https://logs.fr.cloud.gov"
-pe "cf restage cf-spring"
+pe "cf restage sample-app"
 
 echo 
 p "# Now see services at https://${route}"
@@ -96,7 +95,7 @@ p "# We have logs for debugging, and also ssh"
 if (nc -zw 1 ssh.fr.cloud.gov 2222 ) >/dev/null; then
   p "# but SSH is blocked so we'll skip that"
 else
-  pe "cf ssh cf-spring -c 'ps'"
+  pe "cf ssh sample-app -c 'ps'"
 fi
 
 

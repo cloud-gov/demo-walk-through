@@ -9,10 +9,10 @@ clear
 # put your demo awesomeness here
 pe "cf apps ; cf services ; cf routes"
 
-pe "cf delete cf-spring -f"
-pe "cf delete-service cf-spring-db -f"
+pe "cf delete sample-app -f"
+pe "cf delete-service sample-app-db -f"
 pe "cf delete-orphaned-routes -f"
-pe "rm -rf cf-sample-app-spring"
+pe "rm -rf sample-app"
 
 # show a prompt so as not to reveal our true nature after
 # the demo has concluded
