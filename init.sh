@@ -6,7 +6,7 @@ set -e
 
 # DEFAULTS
 # speed at which to simulate typing. bigger num = faster
-TYPE_SPEED=20
+TYPE_SPEED=40
 
 # see http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html
 DEMO_PROMPT="${GREEN}➜ ${CYAN}\W "
