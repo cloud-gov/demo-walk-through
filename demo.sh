@@ -4,7 +4,7 @@ set -e
 
 # include the goodness
 source ./init.sh
-REPO=https://github.com/pburkholder/sample-app
+REPO=https://github.com/cloudfoundry-tutorials/sample-app
 DIR=sample-app
 APP=sample-app
 
@@ -70,11 +70,17 @@ pe "cf marketplace"
 
 echo
 p "# use the -s switch for details on the aws-rds offering"
-pe "cf marketplace -s aws-rds"
+pe "cf marketplace -e aws-rds"
 
 echo 
-p "# create a shared-mysql instance 'sample-app-db'"
-pe "cf create-service aws-rds shared-mysql sample-app-db"
+p "# create a micro-mysql instance 'sample-app-db'"
+pe "cf create-service aws-rds micro-mysql sample-app-db"
+
+echo
+p "# it takes a few minutes for AWS to create the DB"
+p "# so let's discuss other features while I used the "
+p "# watch + cf commands to check the status:"
+pe "watch --chgexit -n 15 'cf service sample-app-db'"
 
 echo
 p "# 'binding' provides the app the env vars to connect to the service"
