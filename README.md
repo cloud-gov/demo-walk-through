@@ -49,3 +49,7 @@ stub for using audit.
 ## Testing/Developing
 
 These demos all rely on [demo-magic](https://github.com/paxtonhare/demo-magic), which is included at `.demo-magic/demo-magic.sh`
+
+## Other demos
+
+* Cloud.gov identity provider demo (in dev): https://github.com/pburkholder/demo-cloud-gov-identity
