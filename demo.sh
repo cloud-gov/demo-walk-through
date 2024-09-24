@@ -4,7 +4,7 @@ set -e
 
 # include the goodness
 source ./init.sh
-REPO=https://github.com/pburkholder/sample-app
+REPO=https://github.com/cloud.gov/sample-app
 DIR=sample-app
 APP=sample-app
 
