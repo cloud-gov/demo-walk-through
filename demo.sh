@@ -63,16 +63,18 @@ p "# View the running app at its route:"
 echo "https://${route}"
 
 echo
+tput rmam # disable line wrap
 p "# To add a backend service, see what's in the 'marketplace'"
 pe "cf marketplace"
+tput smam # enable line wrap
 
 echo
 p "# Use the -e switch for details on the aws-rds offering"
 pe "cf marketplace -e aws-rds"
 
 p "# Create a micro-mysql instance 'sample-app-db'"
-if ( cf services | grep -q sample-app-db ); then 
-  p "# To save 10 minutes, I pre-created the DB, otherwise we'd run:"
+if ( cf services | grep -q sample-app-db ) ; then 
+  p "# To save 10 minutes, I pre-created the DB, otherwise run:"
   p "cf create-service aws-rds micro-mysql sample-app-db"
   cat<<END_DB
 Creating service instance sample-app-db in org sandbox-gsa / space peter.burkholder as peter.burkholder@gsa.gov...
@@ -84,7 +86,7 @@ else
   pe "cf create-service aws-rds micro-mysql sample-app-db"
   p "# We'll check on that for the next 10 minutes with"
   p "watch --diff -n 15 'cf service sample-app-db'"
-  p "# Meanwhile, we'll look at other features of cloud.gov
+  p "# Meanwhile, we'll look at other features of cloud.gov" # there's a bug here
 fi
 
 p "# View service info:"
