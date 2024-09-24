@@ -1,20 +1,20 @@
 # cloud.gov Demos
 
-This project provides several live interactive demonstrations of 
-cloud.gov functionality.
+This project provides an interactive demonstration of
+Cloud.gov functionality.
 
 ## Useful links for the demo:
 
-* [cloud.gov login](https://login.fr.cloud.gov/login)
-* [cloud.gov dashboard](https://dashboard-beta.fr.cloud.gov)
-* [cf-sample-app-spring repository](https://github.com/18F/cf-sample-app-spring)
+* [Cloud.gov login](https://login.fr.cloud.gov/login)
+* [Cloud.gov dashboard](https://dashboard.fr.cloud.gov)
+* [sample-app repository](https://github.com/cloud-gov/sample-app)
 * [orgs, spaces, and apps](http://basics-workshop.cloudfoundry.org/slides/#/20)
 * [users roles by org and space](https://docs.run.pivotal.io/console/images/pws/invite-members.png)
 * [cf push sequence diagram](https://raw.githubusercontent.com/18F/cg-workshop/master/images/app_push_flow_diagram_diego.png)
 * [example projects at cloud.gov](https://cloud.gov/docs/apps/frameworks/#customer-example-applications)
 * [open service broker API](https://www.openservicebrokerapi.org/)
 
-## Prerequisites
+## Prerequisites for running an interactive demo:
 
 * `pv` - the [pipe viewer utility](https://www.ivarch.com/programs/pv.shtml) for *nix systems
   * Install with, e.g, `brew install pv` or `apt-get install pv` or `yum install pv`
@@ -24,11 +24,12 @@ cloud.gov functionality.
 
 ## Quickstart Demo
 
-This is a demo of the [Java application demo](https://cloud.gov/quickstart/).
+This is a demo of launching a [Go sample app](https://github.com/cloud-gov/sample-app)
+into Cloud.gov
 
 Before the demo:
   * Use `git` to clone this repository, then `cd` into it.
-  * Login to cloud.gov: `cf login -a https://api.fr.cloud.gov --sso`
+  * Login to Cloud.gov: `cf login -a https://api.fr.cloud.gov --sso`
 
 Run the demo:
 ```
@@ -40,12 +41,11 @@ Clean up:
 ./demo-cleanup.sh
 ```
 
-## Auditing
-
-We spell out how to use audit endpoints at:
-https://cloud.gov/docs/compliance/auditing-activity/. This directory ... has a
-stub for using audit.
-
 ## Testing/Developing
 
 These demos all rely on [demo-magic](https://github.com/paxtonhare/demo-magic), which is included at `.demo-magic/demo-magic.sh`
+
+## Other demos
+
+* Cloud.gov identity provider demo (in dev): https://github.com/pburkholder/demo-cloud-gov-identity
+
