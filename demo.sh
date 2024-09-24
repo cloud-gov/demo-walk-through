@@ -11,8 +11,8 @@ APP=sample-app
 cleanup() {
   echo "DOING PRE-DEMO CLEAN UP" 
   cf delete sample-app -f >/dev/null
-  # cf delete-service sample-app-db -f >/dev/null
   cf delete-orphaned-routes -f
+  /bin/rm -rf ./$APP
 }
 
 cleanup
@@ -77,7 +77,7 @@ if ( cf services | grep -q sample-app-db ) ; then
   p "# To save 10 minutes, I pre-created the DB, otherwise run:"
   p "cf create-service aws-rds micro-mysql sample-app-db"
   cat<<END_DB
-Creating service instance sample-app-db in org sandbox-gsa / space peter.burkholder as peter.burkholder@gsa.gov...
+Creating service instance sample-app-db in org sandbox-gsa / space fname.lname as fname.lname@gsa.gov...
 
 Create in progress. Use 'cf services' or 'cf service sample-app-db' to check operation status.
 OK

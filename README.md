@@ -7,7 +7,7 @@ Cloud.gov functionality.
 
 * [Cloud.gov login](https://login.fr.cloud.gov/login)
 * [Cloud.gov dashboard](https://dashboard.fr.cloud.gov)
-* [sample-app repository](https://github.com/pburkholder/sample-app)
+* [sample-app repository](https://github.com/cloud-gov/sample-app)
 * [orgs, spaces, and apps](http://basics-workshop.cloudfoundry.org/slides/#/20)
 * [users roles by org and space](https://docs.run.pivotal.io/console/images/pws/invite-members.png)
 * [cf push sequence diagram](https://raw.githubusercontent.com/18F/cg-workshop/master/images/app_push_flow_diagram_diego.png)
@@ -24,7 +24,7 @@ Cloud.gov functionality.
 
 ## Quickstart Demo
 
-This is a demo of launching a [GoLang sample app](https://github.com/pburkholder/sample-app)
+This is a demo of launching a [GoLang sample app](https://github.com/cloud-gov/sample-app)
 into Cloud.gov
 
 Before the demo:
