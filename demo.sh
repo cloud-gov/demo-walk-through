@@ -70,15 +70,32 @@ echo
 p "# Use the -e switch for details on the aws-rds offering"
 pe "cf marketplace -e aws-rds"
 
-echo 
 p "# Create a micro-mysql instance 'sample-app-db'"
-p "cf create-service aws-rds micro-mysql sample-app-db"
-echo "Creating service instance sample-app-db in org sandbox-gsa / space peter.burkholder as peter.burkholder@gsa.gov..."
-p "...but here I've cheated a created this DB before the demo"
+if ( cf services | grep -q sample-app-db ); then 
+  p "# To save 10 minutes, I pre-created the DB, otherwise we'd run:"
+  p "cf create-service aws-rds micro-mysql sample-app-db"
+  cat<<END_DB
+Creating service instance sample-app-db in org sandbox-gsa / space peter.burkholder as peter.burkholder@gsa.gov...
+
+Create in progress. Use 'cf services' or 'cf service sample-app-db' to check operation status.
+OK
+END_DB
+else
+  pe "cf create-service aws-rds micro-mysql sample-app-db"
+  p "# We'll check on that for the next 10 minutes with"
+  p "watch --diff -n 15 'cf service sample-app-db'"
+  p "# Meanwhile, we'll look at other features of cloud.gov
+fi
+
+p "# View service info:"
+pe "cf service sample-app-db"
 
 echo
 p "# 'binding' provides the app the env vars to connect to the service"
 pe "cf bind-service sample-app sample-app-db"
+
+p "# View service info:"
+pe "cf service sample-app-db"
 
 echo
 p "# Restage the app so it can use the backend DB"
@@ -90,11 +107,7 @@ p "# See app with services at https://${route}"
 
 echo
 p "# You can SSH into the running container"
-#if (nc -zw 1 ssh.fr.cloud.gov 2222 ) >/dev/null; then
-#  p "# but SSH is blocked so we'll skip that"
-#else
-  pe "cf ssh sample-app"
-#fi
+pe "cf ssh sample-app"
 
 echo 
 p "# cleanup is easy. If you're done, run ./demo-cleanup.sh"

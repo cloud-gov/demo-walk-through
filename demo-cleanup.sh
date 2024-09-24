@@ -10,7 +10,8 @@ clear
 pe "cf apps ; cf services ; cf routes"
 
 pe "cf delete sample-app -f"
-pe "cf delete-service sample-app-db -f"
+p "cf delete-service sample-app-db -f"
+echo "# not actually deleting the DB"
 pe "cf delete-orphaned-routes -f"
 pe "rm -rf sample-app"
 
