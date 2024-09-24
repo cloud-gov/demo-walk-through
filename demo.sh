@@ -4,7 +4,7 @@ set -e
 
 # include the goodness
 source ./init.sh
-REPO=https://github.com/cloud.gov/sample-app
+REPO=git@github.com:cloud-gov/sample-app.git
 DIR=sample-app
 APP=sample-app
 
@@ -34,7 +34,7 @@ p "# b. you have Git and the CF CLI installed"
 pe "cf help"
 
 echo
-p "# First, lets clone the sample app from $REPO"
+p "# First, lets clone the sample app from GitHub"
 
 /bin/rm -rf $DIR
 pe "git clone $REPO"
