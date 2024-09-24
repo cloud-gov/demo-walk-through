@@ -1,6 +1,6 @@
 # cloud.gov Demos
 
-This project provides several a interactive demonstration of
+This project provides an interactive demonstration of
 Cloud.gov functionality.
 
 ## Useful links for the demo:
@@ -24,7 +24,7 @@ Cloud.gov functionality.
 
 ## Quickstart Demo
 
-This is a demo of launching a [GoLang sample app](https://github.com/cloud-gov/sample-app)
+This is a demo of launching a [Go sample app](https://github.com/cloud-gov/sample-app)
 into Cloud.gov
 
 Before the demo:
