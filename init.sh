@@ -30,7 +30,7 @@ cf target 2>&1 | grep -q "Use .cf login. to log in" >/dev/null &&
 cf target | grep -q '^org: *sandbox-' || 
   fail "'cf target' says you're not connected to a sandbox org. Try 'cf target'"
 
-cf curl /v2/organizations | grep -q "Authentication has expired" &&
+cf curl /v3/organizations | grep -q "Authentication has expired" &&
   fail "Authentication has expired.  Please log back in to re-authenticate."
 
 org_count=$(cf orgs | wc -l)
